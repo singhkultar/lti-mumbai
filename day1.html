@@ -1,0 +1,336 @@
+Uefi vs bios
+Uefi - 128 bit
+In Linux primary directory will be Root (|)
+Windows	Linux
+c		root
+paging	swap
+
+Two types of formating- low level and high level
+low level - vendors like WD and Seagate
+
+I Node Table
+free-h for properties
+cat/cup/cpuinfo
+df -h in human readable format
+ll for documents and files
+vim/etc/passwd - 
+head -n /etc/passwd - to show of 1st 10 lines top to bottom
+tail -n 20 /etc/passwd - to show of 1st 10 lines bottom to top
+vim and  vi editor
+cat > file_name.txt
+cat >> file_name.txt
+chmod
+man
+
+Users and Group Administration
+
+System user = Root (uid=0)
+System user = samba,httpd,nfs,sshd,ftp
+Normal user = Aryan,(1000+)
+vim/etc/passwd - this file will store of our user information.
+
+Two types of group - Primary Group and Secondary Group.
+
+
+rShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\10743412\Downloads> ssh -i "Mindtree.pem" ec2-user@ec2-54-161-108-140.compute-1.amazonaws.com
+The authenticity of host 'ec2-54-161-108-140.compute-1.amazonaws.com (54.161.108.140)' can't be established.
+ED25519 key fingerprint is SHA256:zKpoMG1s1fuODylFXtPvYZNO6FSrnQHpk9pLg+GJg1A.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-54-161-108-140.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-45-161 ~]$ sudo
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-ABkNnS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-ABkNnS] [-g group] [-h host] [-p prompt] [-U user]
+            [-u user] [command [arg ...]]
+usage: sudo [-ABbEHkNnPS] [-r role] [-t type] [-C num] [-D directory]
+            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout]
+            [-u user] [VAR=value] [-i | -s] [command [arg ...]]
+usage: sudo -e [-ABkNnS] [-r role] [-t type] [-C num] [-D directory]
+            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout]
+            [-u user] file ...
+[ec2-user@ip-172-31-45-161 ~]$ sudo -sh
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-ABkNnS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-ABkNnS] [-g group] [-h host] [-p prompt] [-U user]
+            [-u user] [command [arg ...]]
+usage: sudo [-ABbEHkNnPS] [-r role] [-t type] [-C num] [-D directory]
+            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout]
+            [-u user] [VAR=value] [-i | -s] [command [arg ...]]
+usage: sudo -e [-ABkNnS] [-r role] [-t type] [-C num] [-D directory]
+            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout]
+            [-u user] file ...
+[ec2-user@ip-172-31-45-161 ~]$ sudo su
+[root@ip-172-31-45-161 ec2-user]# useradd aryan
+[root@ip-172-31-45-161 ec2-user]# passwd aryan
+Changing password for user aryan.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-45-161 ec2-user]# useradd ram
+[root@ip-172-31-45-161 ec2-user]# passwd ram
+Changing password for user ram.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-45-161 ec2-user]# useradd aniket
+[root@ip-172-31-45-161 ec2-user]# passwd aniket
+Changing password for user aniket.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-45-161 ec2-user]# groupadd sales
+[root@ip-172-31-45-161 ec2-user]# passwd sales
+passwd: Unknown user name 'sales'.
+[root@ip-172-31-45-161 ec2-user]# groupadd marketing
+[root@ip-172-31-45-161 ec2-user]# id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-45-161 ec2-user]# su - aryan
+[aryan@ip-172-31-45-161 ~]$ id
+uid=1001(aryan) gid=1001(aryan) groups=1001(aryan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[aryan@ip-172-31-45-161 ~]$ file /etc/passwd
+/etc/passwd: ASCII text
+[aryan@ip-172-31-45-161 ~]$ file /bin/passwd
+/bin/passwd: setuid ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=757b95662a66f0fe9ef6a253c2e4b091691cc418, for GNU/Linux 3.2.0, stripped
+[aryan@ip-172-31-45-161 ~]$ /etc/passwd
+-bash: /etc/passwd: Permission denied
+[aryan@ip-172-31-45-161 ~]$ exit
+logout
+[root@ip-172-31-45-161 ec2-user]# /etc/passwd
+bash: /etc/passwd: Permission denied
+[root@ip-172-31-45-161 ec2-user]# user/etc/passwd
+bash: user/etc/passwd: No such file or directory
+[root@ip-172-31-45-161 ec2-user]# su - aryan
+Last login: Tue Jun 18 18:17:07 UTC 2024 on pts/1
+[aryan@ip-172-31-45-161 ~]$ user/etc/passwd
+-bash: user/etc/passwd: No such file or directory
+[aryan@ip-172-31-45-161 ~]$ sudo /etc/passwd
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+For security reasons, the password you type will not be visible.
+
+[sudo] password for aryan:
+aryan is not in the sudoers file.
+[aryan@ip-172-31-45-161 ~]$ sudo /etc/shadow
+[sudo] password for aryan:
+aryan is not in the sudoers file.
+[aryan@ip-172-31-45-161 ~]$ aryan /etc/shadow
+-bash: aryan: command not found
+[aryan@ip-172-31-45-161 ~]$ aryan /etc/passwd/shadow
+-bash: aryan: command not found
+[aryan@ip-172-31-45-161 ~]$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+
+
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+systemd-network:x:192:192:systemd Network Management:/:/usr/sbin/nologin
+systemd-oom:x:999:999:systemd Userspace OOM Killer:/:/usr/sbin/nologin
+systemd-resolve:x:193:193:systemd Resolver:/:/usr/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+libstoragemgmt:x:997:997:daemon account for libstoragemgmt:/:/usr/sbin/nologin
+systemd-coredump:x:996:996:systemd Core Dumper:/:/usr/sbin/nologin
+systemd-timesync:x:995:995:systemd Time Synchronization:/:/usr/sbin/nologin
+chrony:x:994:994:chrony system user:/var/lib/chrony:/sbin/nologin
+ec2-instance-connect:x:993:993::/home/ec2-instance-connect:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+ec2-user:x:1000:1000:EC2 Default User:/home/ec2-user:/bin/bash
+aryan:x:1001:1001::/home/aryan:/bin/bash
+ram:x:1002:1002::/home/ram:/bin/bash
+aniket:x:1003:1003::/home/aniket:/bin/bash
+[aryan@ip-172-31-45-161 ~]$ cat /etc/shadow
+cat: /etc/shadow: Permission denied
+[aryan@ip-172-31-45-161 ~]$ ls
+[aryan@ip-172-31-45-161 ~]$ exit
+logout
+[root@ip-172-31-45-161 ec2-user]# ls
+[root@ip-172-31-45-161 ec2-user]# su - aryan
+Last login: Tue Jun 18 18:25:45 UTC 2024 on pts/1
+[aryan@ip-172-31-45-161 ~]$ sudo /etc/passwd
+[sudo] password for aryan:
+aryan is not in the sudoers file.
+[aryan@ip-172-31-45-161 ~]$ vim /etc/passwd
+[aryan@ip-172-31-45-161 ~]$ sudo passwd aryan
+[sudo] password for aryan:
+aryan is not in the sudoers file.
+[aryan@ip-172-31-45-161 ~]$ exit
+logout
+[root@ip-172-31-45-161 ec2-user]# su - aryan
+Last login: Tue Jun 18 18:35:52 UTC 2024 on pts/1
+[aryan@ip-172-31-45-161 ~]$ sudo cat /etc/shadow
+[sudo] password for aryan:
+aryan is not in the sudoers file.
+[aryan@ip-172-31-45-161 ~]$ exit
+logout
+[root@ip-172-31-45-161 ec2-user]# sudo usermod -aG sales aryan
+[root@ip-172-31-45-161 ec2-user]# -help
+bash: -help: command not found
+[root@ip-172-31-45-161 ec2-user]# sudo usermod -aG marketing ram
+[root@ip-172-31-45-161 ec2-user]# sudo usermod -aG sales aniket
+[root@ip-172-31-45-161 ec2-user]# sudo usermod -aG marketing aryan
+[root@ip-172-31-45-161 ec2-user]# tail /etc/group
+stapdev:x:158:
+rpcuser:x:29:
+tcpdump:x:72:
+screen:x:84:
+ec2-user:x:1000:
+aryan:x:1001:
+ram:x:1002:
+aniket:x:1003:
+sales:x:1004:aryan,aniket
+marketing:x:1005:ram,aryan
+[root@ip-172-31-45-161 ec2-user]# head /etc/group
+root:x:0:
+
+
+bin:x:1:
+daemon:x:2:
+sys:x:3:
+adm:x:4:ec2-user
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mem:x:8:
+kmem:x:9:
+[root@ip-172-31-45-161 ec2-user]# tail /etc/sales
+tail: cannot open '/etc/sales' for reading: No such file or directory
+[root@ip-172-31-45-161 ec2-user]# rm -rf aryan sales
+[root@ip-172-31-45-161 ec2-user]# tail /etc/sales
+tail: cannot open '/etc/sales' for reading: No such file or directory
+[root@ip-172-31-45-161 ec2-user]# tail /etc/group
+stapdev:x:158:
+rpcuser:x:29:
+tcpdump:x:72:
+screen:x:84:
+ec2-user:x:1000:
+aryan:x:1001:
+ram:x:1002:
+aniket:x:1003:
+sales:x:1004:aryan,aniket
+marketing:x:1005:ram,aryan
+[root@ip-172-31-45-161 ec2-user]# rm - rf aryan sales
+rm: cannot remove '-': No such file or directory
+rm: cannot remove 'rf': No such file or directory
+
+rm: cannot remove 'aryan': No such file or directory
+rm: cannot remove 'sales': No such file or directory
+[root@ip-172-31-45-161 ec2-user]# vim /etc/passwd
+
+[root@ip-172-31-45-161 ec2-user]# rm -rf aryan
+
+"/etc/shadow" [Permission Denied]
+[root@ip-172-31-45-161 ec2-user]# tail /etc/group
+stapdev:x:158:
+rpcuser:x:29:
+
+
+tcpdump:x:72:
+
+screen:x:84:
+ec2-user:x:1000:
+aryan:x:1001:
+
+ram:x:1002:
+aniket:x:1003:
+sales:x:1004:aryan,aniket
+marketing:x:1005:ram,aryan
+[root@ip-172-31-45-161 ec2-user]# sudo gpasswd -d aryan sales
+Removing user aryan from group sales
+[root@ip-172-31-45-161 ec2-user]# tail /etc/group
+stapdev:x:158:
+rpcuser:x:29:
+tcpdump:x:72:
+screen:x:84:
+ec2-user:x:1000:
+aryan:x:1001:
+ram:x:1002:
+aniket:x:1003:
+sales:x:1004:aniket
+marketing:x:1005:ram,aryan
+[root@ip-172-31-45-161 ec2-user]# cat /etc/passwd/shadow
+cat: /etc/passwd/shadow: Not a directory
+[root@ip-172-31-45-161 ec2-user]# vim /etc/passwd/shadow
+[root@ip-172-31-45-161 ec2-user]# su - aryan
+Last login: Tue Jun 18 18:39:44 UTC 2024 on pts/1
+[aryan@ip-172-31-45-161 ~]$ vim /etc/passwd/shadow
+[aryan@ip-172-31-45-161 ~]$ vim /etc/shadow
+[aryan@ip-172-31-45-161 ~]$ ecit
+-bash: ecit: command not found
+[aryan@ip-172-31-45-161 ~]$ vim /etc/shadow
+[aryan@ip-172-31-45-161 ~]$ vim /etc/sudoers
+[aryan@ip-172-31-45-161 ~]$ exit
+logout
+[root@ip-172-31-45-161 ec2-user]# vim /etc/sudoers
+[root@ip-172-31-45-161 ec2-user]# id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-45-161 ec2-user]# su -
+Last login: Tue Jun 18 18:09:41 UTC 2024 on pts/1
+[root@ip-172-31-45-161 ~]# cat /etc/shadow
+root:*LOCK*:14600::::::
+bin:*:19387:0:99999:7:::
+daemon:*:19387:0:99999:7:::
+adm:*:19387:0:99999:7:::
+lp:*:19387:0:99999:7:::
+sync:*:19387:0:99999:7:::
+shutdown:*:19387:0:99999:7:::
+halt:*:19387:0:99999:7:::
+mail:*:19387:0:99999:7:::
+operator:*:19387:0:99999:7:::
+games:*:19387:0:99999:7:::
+ftp:*:19387:0:99999:7:::
+nobody:*:19387:0:99999:7:::
+dbus:!!:19881::::::
+systemd-network:!*:19881::::::
+systemd-oom:!*:19881::::::
+systemd-resolve:!*:19881::::::
+sshd:!!:19881::::::
+rpc:!!:19881:0:99999:7:::
+libstoragemgmt:!*:19881::::::
+systemd-coredump:!*:19881::::::
+systemd-timesync:!*:19881::::::
+chrony:!!:19881::::::
+ec2-instance-connect:!!:19881::::::
+rpcuser:!!:19881::::::
+tcpdump:!!:19881::::::
+ec2-user:!!:19892:0:99999:7:::
+aryan:$6$G3jG.cSmpgVNm5EE$hXjrVhIU5zdtRFUZ74T2BEgOorXMtNEDkW.nhNN7mhQX3Le.f8okWamATClFFT270LXVdBTyF4WLYn0v6z221.:19892:0:99999:7:::
+ram:$6$3RBr4tBUdvBemXMB$sbBT83wNHDlkDHG.RvIDY2re0JyQ8M5qsQxHL74p5l80S4sSM.K5NyD32htSyCC0xb/IxDf2u3hXmXg6Q.OZP.:19892:0:99999:7:::
+aniket:$6$1Z3KMIVfotwTIw7t$BtPP.B9KIAh1rx6S.ZcchSndkCFv2ttCpD1m.RHGjtUCuAuRTsrsIIkt5YhBNXqVjMLFyse16SCAAn/SaccLq.:19892:0:99999:7:::
+[root@ip-172-31-45-161 ~]#
