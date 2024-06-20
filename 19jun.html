@@ -1,0 +1,199 @@
+[root@ip-172-31-94-170 ~]#
+	[vaibhav@ip-172-31-94-170 root]$
+#Can multiple mount partition have same folder
+
+Objective : How to setup On-prem git environment
+
+############ SERVER #############
+//configure
+ip address 
+hostname
+dns
+mkrdir/project
+yum install git
+git init --bare
+
+
+/*
+---------------INFRA SETUP--------------------
+sudo su -
+passwd root	[set passward]
+hostnamectl set-hostname server.example.com
+bash
+yum install git		[git install]
+mkdir /project
+cd /project
+git init --bare
+ls -a
+*/
+
+
+
+
+
+############ Dev 01 #############
+hostname - dev1
+ip address
+dns
+Os-amazon linux
+yum install git -y
+mkdir/code
+#git init
+
+/*
+---------------INFRA DEV01 SETUP--------------------
+sudo su -
+passwd root	[set passward]
+hostnamectl set-hostname dev1.example.com	[hostname setup]
+bash
+yum install git		[git install]
+mkdir /dev-one
+cd /dev-one
+git init
+ls-a
+*/
+
+
+
+
+
+
+
+
+########### Dev 02 ############
+hostname - dev1
+ip address
+dns
+Os-amazon linux
+yum install git -y
+mkdir/code
+git init
+
+/*
+---------------INFRA DEV02 SETUP--------------------
+sudo su -
+passwd root	[set passward]
+hostnamectl set-hostname dev2.example.com
+bash
+yum install git		[git install]
+mkdir /dev-two
+cd /dev-two
+git init
+ls-a
+*/
+
+
+
+Git server : developer push the final changes
+Git client : git init
+Repository : collection of final commit
+	- Centralized repo : available on servers
+	- local repo : local machine
+Push	: developer push code on server
+Clone	: clone entire project
+Pull	: get information about changes made
+Branch	: 
+
+
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+after commit
+
+git commit -m "message" index.html
+git config Name
+git config Email
+git push origin master
+
+ssh-keygen
+.l
+cd .ssh/
+ll
+cat authorized_key
+
+cat id_rsa.pub
+
+vim /etc/ssh/sshd_configure
+systemctl restart sshd		[i have done some changes please change]
+systemctl enable sshd
+systemctl status sshd
+
+NOTE : All configure file are present at /etc/
+
+Dev 2
+cd /dev-two/
+git remote add origin root@175 :/Project
+git clone root@175 :/Project
+cd project/
+ll
+cat index.html
+
+Server side : SSH edit		[uncomment]
+systemctl restart sshd		[i have done some changes please change]
+systemctl enable sshd
+systemctl status sshd
+passwd root
+
+Client side
+ssh-keygen
+
+ssh -copy
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+			Server side
+
+
+sudo su -
+hostnamectl set-hostname server.example.com
+bash
+yum install git
+mkdir projectGit
+cd projectGit/
+git init --bare
+ls -a
+cd
+vim /etc/ssh/sshd_config [PasswordAuthentication-yes	PermitRootLogon-yes]
+systemctl restart sshd		[i have done some changes please change]
+systemctl enable sshd
+systemctl status sshd
+passwd root
+
+
+
+			Dev1
+sudo su -
+hostnamectl set-hostname dev1.example.com
+bash
+yum install git
+mkdir dev-one/
+cd dev-one
+vim file1.txt
+git init
+git status
+git add .
+git status
+ssh-keygen
+cd
+l.
+cd .ssh
+cat authorized_keys
+ssh-copy-id root@172.32.42.1
+git remote add origin root@ip:/project
+
+
+
+
+
+git branch staging
+git branch
+git checkout staging
+git branch
+
+
+
+
+
