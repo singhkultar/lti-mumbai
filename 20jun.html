@@ -1,0 +1,110 @@
+***********************************************************************20jun-Day 4**********************************************************************
+
+GitHub
+
+#git push --set-upstream origin main --force
+
+// Dev1-server
+yum install git
+ssh-keygen
+cat .ssh/id_rsa.pub
+rpmquery git
+mkdir /data
+cd /data/
+git init
+vim index.html
+git status
+git add .
+ gi
+git remote add origin git@github.com:Singh-Rv/ltimindtree-DevOps.git
+git remote -v
+git branch -M main
+git push origin main
+check on github!!
+
+
+// Dev2-server
+sudo su -
+hostnamectl set-hostname dev2
+yum install gitat
+ssh-keygen
+cat .ssh/id_rsa.pub 		[copy key]
+mkdir /data2/
+cd /data2/
+git init
+git remote add origin git@github.com:Singh-Rv/ltimindtree-DevOps.git
+git remote -v
+git clone git@github.com:Singh-Rv/ltimindtree-DevOps.git
+ls
+cd folder
+vim index.html
+git add . 
+git status
+git config --global user.email vaibhav@example.com && git config --global user.name vaibhav
+git branch			[check ranch]
+
+________________________________________________________________________________________________________________________________________________________
+
+								Jenkins-server with aws
+
+https://medium.com/@Raghvendra_Tyagi/how-to-install-and-configure-jenkins-on-amazon-linux-2024-and-building-your-first-project-a-97a1fe754216
+https://medium.com/@vivekadam1332/%EF%B8%8F-a-simple-devops-project-lets-do-using-jenkins-git-maven-and-tomcat-with-aws-ec2-a1136a4a56f4
+PORT : 8080
+
+#instance setup
+
+t2.medium 
+add security group rule
+port range 8080
+source type = anywhere
+
+#launch
+
+hostnamectl set-hostname Jenkins
+bash
+yum install git
+dnf update
+dnf install java-17-amazon-corretto -y
+dnf repolist 
+java -version
+dnf repolist
+wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install Jenkins -y
+rpm Jenkins
+systemctl start Jenkins
+systemctl enable Jenkins
+systemctl status Jenkins
+
+# IN CHROME
+
+ip:8080
+cat /var/lib/jenkins/secrets/initialAdminPassword
+http://52.66.209.40:8080/
+
+webhook token - 1108b46bfd9f2ae0fc390ffe1d58064d10
+______________________________________________________________________________________________________________________________________________
+
+									Jenkins server with ubuntu
+
+clear
+apt install git
+
+apt install git-all
+apt install java-17-amazon-corretto -y
+wget -O - https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg && echo "deb [signedby=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | sudo tee /etc/apt/sources.list.d/corretto.list
+
+sudo apt-get update; sudo apt-get install -y java-17-amazon-corretto-jdk
+java --version
+
+wget -O /usr/share/keyrings/jenkins-keyring.asc   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]"   https://pkg.jenkins.io/debian-stable binary/ | sudo tee/etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update && sudo apt-get install jenkins
+systemctl enable jenkins
+systemctl start jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
+http://65.0.72.40:8080/
+
+
+
